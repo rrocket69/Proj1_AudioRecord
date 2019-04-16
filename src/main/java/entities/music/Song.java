@@ -5,11 +5,10 @@ import entities.Styles;
 
 public class Song extends MusicalComposition {
 
-    public Song(Styles style, String author, int duration){
-        this.style = style;
-        this.author = author;
-        this.duration = duration;
+    public Song(String name, Styles style, String author, int duration) {
+        super(name, style, author, duration);
     }
+
     public void play() {
 
     }

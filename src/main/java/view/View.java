@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public class View {
 
     private static String CONFIG_BUNDLE_NAME = "config";
-    public static final ResourceBundle bundle =
+    private static final ResourceBundle bundle =
             ResourceBundle.getBundle(CONFIG_BUNDLE_NAME,
 //                    new Locale("ua","UA"));
                     new Locale("en"));
