@@ -9,8 +9,8 @@ public class Song extends MusicalComposition {
         super(name, style, author, duration);
     }
 
-    public void play() {
-
+    public String play() {
+        return "Playing song: " + this.getName();
     }
 
 }

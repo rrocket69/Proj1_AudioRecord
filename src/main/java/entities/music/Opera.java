@@ -9,8 +9,8 @@ public class Opera extends MusicalComposition {
         super(name, style, author, duration);
     }
 
-    public void play() {
-
+    public String play() {
+        return "Playing opera: " + this.getName();
     }
 
 }

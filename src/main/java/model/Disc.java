@@ -1,26 +1,43 @@
 package model;
 
+
+import entities.MusicalComposition;
+
+import java.util.ArrayList;
+
 public class Disc {
 
-    private DataBase[] arr = DataBase.values();
+    private ArrayList<MusicalComposition> songsArray = null;
 
+    /**
+     * Singleton realization
+     */
+    public Disc(){
+        if(songsArray == null){
+            songsArray = new ArrayList<MusicalComposition>();
+        }
+    }
+
+    public void addSong(MusicalComposition composition) {
+        songsArray.add(composition);
+    }
 
     public long calculateDuration() {
         long res = 0;
-        for (DataBase i : arr) {
+        for (MusicalComposition i : songsArray) {
             res += i.getDuration();
         }
         return res;
     }
 
-    public void bubbleSortToStyle() {
-        for (int j = 0; j < arr.length; j++) {
-            for (int i = 0; i < arr.length - 1; i++) {
-                if (arr[i].getStyle().toString().charAt(0)
-                        > arr[i + 1].getStyle().toString().charAt(0)) {
-                    DataBase temp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = temp;
+    public void bubbleSortByStyle() {
+        for (int j = 0; j < songsArray.size(); j++) {
+            for (int i = 0; i < songsArray.size() - 1; i++) {
+                if (songsArray.get(i).getStyle().
+                        compareTo(songsArray.get(i + 1).getStyle()) > 0) {
+                    MusicalComposition temp = songsArray.get(i);
+                    songsArray.set(i, songsArray.get(i + 1));
+                    songsArray.set(i + 1, temp);
                 }
             }
         }
@@ -28,18 +45,22 @@ public class Disc {
 
     public String findByDiapasonDuration(long first, long second) {
         StringBuilder stringBuilder = new StringBuilder("[ ");
-        for (DataBase i : arr) {
+        for (MusicalComposition i : songsArray) {
             if (i.getDuration() > first && i.getDuration() < second)
                 stringBuilder.append(i.toString()).append(" ");
         }
         return stringBuilder.append("]").toString();
     }
 
+    public String playSong(int num) {
+        return songsArray.get(num).play();
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("[ ");
-        for (DataBase i : arr) {
-            stringBuilder.append(i.toString()).append(" ");
+        for (MusicalComposition i : songsArray) {
+            stringBuilder.append(i.toString()).append(", ");
         }
         return stringBuilder.append("]").toString();
     }

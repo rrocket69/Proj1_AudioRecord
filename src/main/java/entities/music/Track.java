@@ -9,8 +9,7 @@ public class Track extends MusicalComposition {
         super(name, style, author, duration);
     }
 
-    public void play() {
-
+    public String play() {
+        return "Playing track: " + this.getName();
     }
-
 }

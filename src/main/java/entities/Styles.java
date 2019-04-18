@@ -1,8 +1,8 @@
 package entities;
 
 public enum Styles {
-    Hip_Hop,
+    Classical,
+    HipHop,
     Jazz,
-    Rock,
-    Classical
+    Rock
 }

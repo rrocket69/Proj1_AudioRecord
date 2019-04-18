@@ -12,6 +12,7 @@ public abstract class MusicalComposition implements Playable{
         this.author = author;
         this.duration = duration;
     }
+
     public int getDuration() {
         return duration;
     }
@@ -22,5 +23,10 @@ public abstract class MusicalComposition implements Playable{
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return style + " " + name;
     }
 }
