@@ -31,6 +31,7 @@ public class Controller {
         view.printMessage("output.diapason.duration.data");
         view.printString(disc.findByDiapasonDuration(100000,200000));
 
-        view.printString(disc.playSong(1));
+        view.printString(disc.getPlayableImpl(1).play());
+
     }
 }
