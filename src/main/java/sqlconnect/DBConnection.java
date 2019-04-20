@@ -20,7 +20,7 @@ public class DBConnection {
             "&serverTimezone=UTC";
 
     private static final String USER = "root";
-    private static final String PASSWORD = "asdfghqwe321";
+    private static final String PASSWORD = "****Put your password****";
 
     public Disc getRecordsFromDB(Disc disc){
         try {
