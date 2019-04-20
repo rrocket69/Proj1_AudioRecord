@@ -1,7 +1,7 @@
 package controller;
 
-import entities.Styles;
 import model.Disc;
+import sqlconnect.DBConnection;
 import view.View;
 
 public class Controller {
@@ -13,11 +13,14 @@ public class Controller {
         this.view = view;
     }
     public void startAction(){
-        disc.addSong(Factory.createOne("Song","Hey Jude", Styles.Rock, "The Beatles", 200000));
-        disc.addSong(Factory.createOne("Opera","Ghost of opera", Styles.Classical, "Webber", 500000));
-        disc.addSong(Factory.createOne("Track","Yo", Styles.HipHop, "Noname", 199999));
-        disc.addSong(Factory.createOne("Symphony","6th", Styles.Classical, "Mozart", 400001));
-        disc.addSong(Factory.createOne("Song","What a wonderful world", Styles.Jazz, "Lui Armstrong", 200001));
+        disc = new DBConnection().getRecordsFromDB(disc);
+
+        //To initialize without db
+//        disc.addSong(Factory.createOne("Song","Hey Jude", Styles.Rock, "The Beatles", 200000));
+//        disc.addSong(Factory.createOne("Opera","Ghost of opera", Styles.Classical, "Webber", 500000));
+//        disc.addSong(Factory.createOne("Track","Yo", Styles.HipHop, "Noname", 199999));
+//        disc.addSong(Factory.createOne("Symphony","6th", Styles.Classical, "Mozart", 400001));
+//        disc.addSong(Factory.createOne("Song","What a wonderful world", Styles.Jazz, "Lui Armstrong", 200001));
 
         view.printMessage("output.all.duration.data");
         view.printString(Long.toString(disc.calculateDuration()));
@@ -34,4 +37,5 @@ public class Controller {
         view.printString(disc.getPlayableImpl(1).play());
 
     }
+
 }
